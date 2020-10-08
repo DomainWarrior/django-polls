@@ -1,0 +1,19 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+<article class="message">
+  <div class="message-header">
+    <button class="delete" aria-label="delete"><a href="{% url 'polls:detail' question.id %}">Vote again?</a></button>
+  </div>
+  <div class="message-body">
+   <strong>Tired of never having an answer?</strong> Nows your chance to finally come to a group decision. (Also see what others voted after you vote!)
+  </div>
+</article>

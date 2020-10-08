@@ -1,0 +1,20 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+{% if latest_question_list %}
+    <ol>
+    {% for question in latest_question_list %}
+      <article class="message">
+  <div class="message-header">
+   <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+    <button class="delete" aria-label="delete"></button>
+  </div>
+  <div class="message-body">
+     <strong>Tired of never having an answer?</strong> You aren't alone, choose the most fitting question Get Ideas instead of being indecisive!
+  </div>
+</article>
+    {% endfor %}
+    </ol>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

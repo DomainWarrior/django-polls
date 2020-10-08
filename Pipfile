@@ -1,0 +1,17 @@
+[[source]]
+name = 'pypi'
+url = 'https://pypi.python.org/simple'
+verify_ssl = true
+
+[pipenv]
+allow_prereleases = true
+
+[packages]
+aiohttp = '*'
+django = '*'
+bulma = '*'
+
+[dev-packages]
+
+[requires]
+
